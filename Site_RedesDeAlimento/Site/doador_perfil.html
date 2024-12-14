@@ -1,0 +1,144 @@
+<!-- Perfil de Doador -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doador - Redes de Alimentos</title>
+  <link rel="stylesheet" href="/Style/perfil-doador.css">
+
+  <link rel="shortcut icon" href="/Image/Logo (6).png" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+
+  <script defer src="/Java/perfis.js"></script>
+</head>
+<body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <img src="/Image/Logo (13).png" alt="Rede de Alimentos">
+        </div>
+      </nav>
+  </header>
+  <div class="container">
+   <!-- Menu Lateral -->
+    <aside class="sidebar">
+      <div class="profile">
+        <form id="upload-form">
+          <input type="file" id="foto-perfil" accept="image/*" style="display: none;" />
+          <div class="profile-pic" onclick="document.getElementById('foto-perfil').click();"></div>
+        </form>
+        <h2>Cliente Teste</h2>
+        <p>Gerando Falcões</p>
+      </div>
+      <nav class="menu">
+        <ul>
+          <li><a href="#perfil" class="menu-link">Perfil</a></li>
+          <li><a href="#doacoes" class="menu-link">Doações</a></li>
+          <li><a href="#comentarios" class="menu-link">Comentários</a></li>
+          <li><a href="#sair" class="menu-link">Sair</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+
+    <!-- Perfil -->
+    <section id="perfil" class="tab-content">
+      <h2>Perfil</h2>
+      <form id="form-editar-perfil">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" value="Nome do Usuário" required>
+
+        <label for="instituicao">Instituição:</label>
+        <input type="text" id="instituicao" name="instituicao" value="Nome da Instituição" required>
+
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" name="telefone" value="(81) 9xxxx-xxxx" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="exemplo@gmail.com" required>
+
+        <button type="submit">Salvar Alterações</button>
+      </form>
+    </section>
+
+    <!-- Conteúdo Principal -->
+    <main class="content">
+      <section id="perfil" class="tab-content active">
+        <h2>Perfil</h2>
+        <p><strong>Nome:</strong> Nome do Usuário</p>
+        <p><strong>Instituição:</strong> Nome da Instituição</p>
+        <p><strong>Telefone:</strong> (81) 9xxxx-xxxx</p>
+        <p><strong>Email:</strong> exemplo@gmail.com</p>
+      </section>
+
+      <section id="doacoes" class="tab-content">
+        <h2>Doações</h2>
+        <form id="form-doacao">
+          <label for="item">Item:</label>
+          <input type="text" id="item" required placeholder="Exemplo: Arroz">
+          <br>
+          <label for="validade">Validade:</label>
+          <input type="date" id="validade" required>
+          <br>
+          <button type="submit">Adicionar Doação</button>
+        </form>
+        <h3>Itens Cadastrados</h3>
+        <table id="tabela-doacoes">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Item</th>
+              <th>Validade</th>
+              <th>Status</th>
+              <th>Data</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="comentarios" class="tab-content">
+        <h2>Comentários</h2>
+        <!-- Conteúdo de comentários permanece -->
+        <h2>Avaliação do Doador</h2>
+  
+        <!-- Formulário para avaliação -->
+        <form id="form-avaliacao">
+          <label for="disponibilidade">Disponibilidade do Doador:</label>
+          <textarea id="disponibilidade" placeholder="Descreva a disponibilidade do doador" rows="4" required></textarea>
+          
+          <label for="ajuda">O doador ajudou de forma eficiente?</label>
+          <textarea id="ajuda" placeholder="Descreva como o doador ajudou" rows="4" required></textarea>
+          
+          <label for="classificacao">Classificação:</label>
+          <div id="classificacao" class="stars">
+            <input type="radio" name="classificacao" value="1" id="star1"><label for="star1">&#9733;</label>
+            <input type="radio" name="classificacao" value="2" id="star2"><label for="star2">&#9733;</label>
+            <input type="radio" name="classificacao" value="3" id="star3"><label for="star3">&#9733;</label>
+            <input type="radio" name="classificacao" value="4" id="star4"><label for="star4">&#9733;</label>
+            <input type="radio" name="classificacao" value="5" id="star5"><label for="star5">&#9733;</label>
+          </div>
+    
+          <button type="submit">Enviar Avaliação</button>
+        </form>
+    
+        <h3>Avaliações Recebidas</h3>
+        <ul id="avaliacoes-list">
+          <!-- As avaliações serão listadas aqui -->
+        </ul>
+      </section>
+      <!-- Comentários (Avaliação do Doador) -->
+  
+      <section id="sair" class="tab-content">
+        <h2>Deseja realmente sair?</h2>
+        <a href="/home.html" class="btn-logout">Sair</a>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

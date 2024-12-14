@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/Style/home.css">
+  <title>Rede de Alimentos</title>
+
+  <link rel="shortcut icon" href="/Image/Logo (6).png" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="/Image/Logo (13).png" alt="Rede de Alimentos">
+      </div>
+      <ul class="menu">
+        <li><a href="/home.html">Home</a></li>
+        <li><a href="#sobrenos">Sobre Nós</a></li>
+        <li><a href="#comofunc">Como Funciona</a></li>
+        <li><a href="#parcerias">Parcerias</a></li>
+        <li><a href="#depoimento">Depoimentos</a></li>
+        <li><a href="#dests">Destaques</a></li>
+        <li><a href="#juntese">Junte-se a Nós</a></li>
+      </ul>
+       
+    <div id="botoes" class="butn">
+      <!-- Botão para abrir o modal de login -->
+    <button id="openLoginModal" class="btn2-open-modal">Entrar</button>
+
+    <button id="openRegisterModal" class="btn-open-modal">Cadastrar-se</button>
+
+    </div>
+
+    <!-- Modal de Login -->
+    <div id="modalLogin" class="modal">
+        <div class="modal-content">
+            <span id="closeLoginModal" class="close">&times;</span>
+            <div class="login-box">
+                <main>
+                    <img src="/Image/Logo (13).png" alt="logotipo1">
+                </main>
+                <h2>Faça o seu login</h2>
+                <form action="#">
+                    <label for="emailLogin">Seu e-mail*</label>
+                    <input type="email" id="emailLogin" name="email" placeholder="Digite seu e-mail" required>
+
+                    <label for="senhaLogin">Sua senha*</label>
+                    <input type="password" id="senhaLogin" name="senha" placeholder="Digite sua senha" required>
+
+                    <div class="show-password">
+                        <input type="checkbox" id="mostrarSenha">
+                        <label for="mostrarSenha">Mostrar senha</label>
+                    </div>
+
+                    <div class="options">
+                        <div>
+                            <input type="checkbox" id="lembrarMe">
+                            <label for="lembrarMe">Lembrar-me</label>
+                        </div>
+                        <a href="#" class="forgot-password">Esqueceu sua senha?</a>
+                    </div>
+
+                    <button type="submit" class="btn">Entrar</button>
+
+                    <p class="register-link">
+                        Não sou cadastrado ainda? <a href="#cadastrobox">Cadastre-se aqui</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Abrir o modal de login
+        const openLoginModal = document.getElementById('openLoginModal');
+        const loginModal = document.getElementById('modalLogin');
+        const closeLoginModal = document.getElementById('closeLoginModal');
+
+        openLoginModal.addEventListener('click', () => {
+            loginModal.style.display = 'block';
+        });
+
+        // Fechar o modal ao clicar no "x"
+        closeLoginModal.addEventListener('click', () => {
+            loginModal.style.display = 'none';
+        });
+
+        // Fechar o modal ao clicar fora da janela
+        window.addEventListener('click', (event) => {
+            if (event.target === loginModal) {
+                loginModal.style.display = 'none';
+            }
+        });
+
+        // Mostrar/ocultar senha
+        const mostrarSenhaCheckbox = document.getElementById('mostrarSenha');
+        const senhaInput = document.getElementById('senhaLogin');
+
+        mostrarSenhaCheckbox.addEventListener('change', () => {
+            if (mostrarSenhaCheckbox.checked) {
+                senhaInput.type = 'text';
+            } else {
+                senhaInput.type = 'password';
+            }
+        });
+    </script>
+
+    <!-- Modal de Cadastro -->
+    <div id="modalCadastro" class="modal">
+        <div class="modal-content">
+            <span id="closeRegisterModal" class="close">&times;</span>
+            <div class="cadastro-box" id="cadastrobox">
+                <h2>Cadastro</h2>
+                <img id="logotipo1" src="/Image/Logo (13).png" alt="logotipo1">
+                <form action="#">
+                    <label for="nome">Nome do Representante*</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+            
+                    <label for="cpfCnpj">CPF ou CNPJ*</label>
+                    <input type="text" id="cpfCnpj" name="cpfCnpj" placeholder="Digite o CPF ou CNPJ" required>
+            
+                    <label for="email">E-mail*</label>
+                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+            
+                    <label for="senha">Senha*</label>
+                    <input type="password" id="senhaCadastro" name="senha" placeholder="Digite sua senha" required>
+            
+                    <!-- Sessão de Endereço -->
+                    <fieldset class="endereco">
+                        <legend>Endereço</legend>
+            
+                        <label for="rua">Rua*</label>
+                        <input type="text" id="rua" name="rua" placeholder="Digite sua rua" required>
+            
+                        <label for="numero">Número*</label>
+                        <input type="text" id="numero" name="numero" placeholder="Digite o número" required>
+            
+                        <label for="bairro">Bairro*</label>
+                        <input type="text" id="bairro" name="bairro" placeholder="Digite o bairro" required>
+            
+                        <label for="complemento">Complemento</label>
+                        <input type="text" id="complemento" name="complemento" placeholder="Digite o complemento (opcional)">
+            
+                        <label for="cep">CEP*</label>
+                        <input type="text" id="cep" name="cep" placeholder="Digite o CEP" required>
+                    </fieldset>
+            
+                    <label for="tipoConta">Tipo de Conta*</label>
+                    <select id="tipoConta" name="tipoConta" required>
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="doador">Doador</option>
+                        <option value="receptor">Receptor de Alimentos</option>
+                    </select>
+            
+                    <div class="terms">
+                        <input type="checkbox" id="termos" required>
+                        <label for="termos">
+                            Aceito os <a href="#">termos de uso</a> e autorizo o uso de imagem anexada no site.
+                        </label>
+                    </div>
+            
+                    <button type="submit" class="btn">Cadastrar</button>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        // Abrir o modal de cadastro
+        const openRegisterModal = document.getElementById('openRegisterModal');
+        const registerModal = document.getElementById('modalCadastro');
+        const closeRegisterModal = document.getElementById('closeRegisterModal');
+
+        openRegisterModal.addEventListener('click', () => {
+            registerModal.style.display = 'block';
+        });
+
+        // Fechar o modal ao clicar no "x"
+        closeRegisterModal.addEventListener('click', () => {
+            registerModal.style.display = 'none';
+        });
+
+        // Fechar o modal ao clicar fora da janela
+        window.addEventListener('click', (event) => {
+            if (event.target === registerModal) {
+                registerModal.style.display = 'none';
+            }
+        });
+    </script>
+
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+     
+      <div class="carousel">
+        <div class="carousel-container">
+            <div class="carousel-images">
+                <img src="/Image/Imagem 1.png" alt="Image 1">
+                <img src="/Image/Imagem 2.png" alt="Image 2">
+                <!-- mais imagens aqui -->
+            </div>
+        </div>
+        <button class="prev-btn">‹</button>
+        <button class="next-btn">›</button>
+    </div>
+    </section>
+
+    <script src="/Java/style.js"></script>
+
+    <section id="sobrenos">
+        <div class="sobrenos-content" >
+            <h1 class="tit-h1">Sobre nós</h1>
+
+
+            <p>O Rede de Alimentos nasceu com um propósito claro: combater a fome no Brasil e reduzir o desperdício de alimentos. Inspirado pela urgência de mudar a realidade de milhões de pessoas em situação de insegurança alimentar. Nosso projeto conecta doadores como supermercados, feiras e restaurantes, à ONGS, cozinhas comunitárias e iniciativas sociais que levam comida à mesa de quem mais precisa.<br><br>
+            Somos um grupo de jovens que viu na construção de um projeto integrador desenvolvido com o objetivo de transformar solidariedade em ação. Acreditamos que cada alimento desperdiçado é uma oportunidade perdida de fazer a diferença, e é por isso que utilizamos tecnologia para criar uma rede eficiente e acessível. Mais do que uma solução digital, somos uma ponte entre abundância e necessidade.<br><br>
+            Nosso compromisso vai além da redistribuição de alimentos: queremos promover dignidade, empatia e sustentabilidade. Trabalhamos com transparência e engajamos empresas, organizações e cidadãos para, juntos, construirmos um Brasil onde ninguém precise dormir com fome.</p><br>
+
+
+
+
+            <h2 class="sbtit-h2">Faça parte dessa rede de <br> esperança e transformação!</h2>
+           
+        </div>
+        <img src="/Image/sobrenos1.png" alt="" class="sobrenos-img1">
+       
+        <img src="/Image/sobrenos2.png" alt="" class="sobrenos-img2">
+       
+       
+    </section>
+
+    <section class="como-funciona">
+        <h2 id="comofunc">Como Funciona</h2>
+        <div class="funcionamento-grid">
+          <div class="funcionamento-item">
+            <img src="/Image/IconesCF/Cadastro.png" alt="Ícone de Cadastro dos Participantes">
+            <h3>Cadastro dos Participantes</h3>
+            <p>Tanto doadores (como mercados e restaurantes) quanto receptores (ONGs e cozinhas comunitárias) se cadastram na plataforma, criando uma rede confiável e segura para redistribuição de alimentos.</p>
+          </div>
+          <div class="funcionamento-item">
+            <img src="/Image/IconesCF/Registro.png" alt="Ícone de Registros de Doações">
+            <h3>Registros de doações</h3>
+            <p>Os doadores informam os alimentos disponíveis, detalhando quantidade, local de retirada e validade. Tudo é registrado para garantir segurança alimentar e eficiência no processo.</p>
+          </div>
+          <div class="funcionamento-item">
+            <img src="/Image/IconesCF/Conexao.png" alt="Ícone de Conexão Inteligente">
+            <h3>Conexão Inteligente</h3>
+            <p>A plataforma conecta doações às instituições mais próximas, utilizando localização e demanda como critérios. Assim, garantimos que os alimentos cheguem rapidamente a quem mais precisa.</p>
+          </div>
+          <div class="funcionamento-item">
+            <img src="/Image/IconesCF/Transport.png" alt="Ícone de Transporte e Logística">
+            <h3>Transporte e Logística</h3>
+            <p>Os alimentos são retirados pelos receptores ou transportados por parceiros logísticos. Essa etapa otimiza recursos e evita atrasos, assegurando que os alimentos sejam aproveitados no tempo certo.</p>
+          </div>
+          <div class="funcionamento-item">
+            <img id="dist" src="/Image/IconesCF/Distribuição.png" alt="Ícone de Distribuição Solidária">
+            <h3>Distribuição Solidária</h3>
+            <p>As ONGs e cozinhas comunitárias transformam os alimentos recebidos em refeições nutritivas, levando esperança e dignidade às pessoas em situação de vulnerabilidade.</p>
+          </div>
+          <div class="funcionamento-item">
+            <img src="/Image/IconesCF/Impacto.png" alt="Ícone de Impacto e Transparência">
+            <h3>Impacto e<br>Transparência</h3>
+            <p>Acompanhamos e reportamos os resultados, como alimentos redistribuídos, pessoas beneficiadas e desperdício evitado. A transparência reforça a confiança e inspira mais pessoas a participarem.</p>
+          </div>
+        </div>
+      </section>
+      <br>
+      <section class="parceriasimg">
+        <h1 id="parcerias">Parcerias</h1>
+        <br>
+            <div class="imagens">
+                <a href="https://www.serasaexperian.com.br/">
+                    <img src="/Image/Parcerias/Serase-Experian.png" alt="Serasa-Experian">
+                </a>
+           
+                <a href="https://www2.recife.pe.gov.br/">
+                    <img src="/Image/Parcerias/Recife.png" alt="Prefeitura-do-Recife">
+                </a>
+            
+                <a href="https://www.instagram.com/ongcoracaoquentinhorecife/">
+                    <img src="/Image/Parcerias/Coração.jpeg" alt="Coracao-Quentinho">
+                </a>
+            
+            
+                <a href="https://www.ceasape.org.br/">
+                    <img src="/Image/Parcerias/Ceasa.jpg" alt="Ceasa">
+                </a>
+            </div>
+        </section>
+
+        <section class="depoimentos">
+          <h2 id="depoimento">Depoimentos</h2>
+          <br>
+          <div class="container">
+              <div class="depoimento">
+                  <img src="/Image/Depoimentos/Ana-Lemos-image-projeto.jpg" alt="Ana Lemos">
+                  <h2>Ana Lemos</h2>
+                  <p class="cargo">Gestora da Ceasa Pernambuco</p>
+                  <p class="texto">“A Rede de Alimentos nos permite impactar positivamente comunidades, garantindo acesso a alimentos de qualidade e fortalecendo produtores locais.”</p>
+              </div>
+              <div class="depoimento">
+                  <img src="/Image/Depoimentos/Carlos Menezes-image-projeto.jpeg" alt="Carlos Menezes">
+                  <h2>Carlos Menezes</h2>
+                  <p class="cargo">Gestor G10 Favelas</p>
+                  <p class="texto">“Ser parte deste projeto me fez compreender o poder da colaboração. Juntos, transformamos vidas e otimizamos o uso de recursos alimentares.”</p>
+              </div>
+              <div class="depoimento">
+                  <img src="/Image/Depoimentos/Luciana Ribeiro-imagem-projeto.jpg" alt="Luciana Ribeiro">
+                  <h2>Luciana Ribeiro</h2>
+                  <p class="cargo">Coordenadora da ONG Banco de Alimentos</p>
+                  <p class="texto">“A Rede de Alimentos conecta pessoas e ideias em prol de um futuro mais sustentável para o setor alimentício. É incrível ver os resultados na prática!”</p>
+              </div>
+          </div>
+      </section>
+    <br>
+    <section class="destaques1">
+    <h2 id="dests">Destaques Redes de Alimentos</h2>
+    <div class="cards-container">  
+      <div class="card">
+          <img src="/Image/Destaques/img-noticia-1.jpg" alt="Imagem Notícia 1" class="imagem-card">
+          <h3 class="titulo-card">Mundo retrocedeu 15 anos no combate à fome, diz estudo da ONU</h3>
+          <p class="descricao-card">Além dos dados da fome, o relatório revela que em 2023, cerca de 2,3 bilhões de pessoas, o que corresponde a 28,9% da população mundial, enfrentam insegurança alimentar moderada ou grave.
+            Entre essas pessoas, mais de 864 milhões experimentaram insegurança alimentar grave, ficando sem comida durante um dia inteiro ou mais.</p>
+          <a href="https://news.un.org/pt/story/2024/07/1835056" class="botao">LEIA MAIS</a>
+      </div>
+      <div class="card">
+          <img src="/Image/Destaques/test-noticia-2.jpg" alt="Imagem Notícia 2" class="imagem-card">
+          <h3 class="titulo-card">Conheça ONGs que ajudam no combate à fome no Brasil.</h3>
+          <p class="descricao-card">Os impactos causados pela pandemia do coronavírus são sentidos em diversos âmbitos da sociedade desde março de 2020. Mais do que novos problemas, essa situação acentuou crises antigas que, muitas vezes, podem não bater na sua porta, mas nem por isso deixam de existir. Hoje, no entanto, estão mais presentes do que nunca. Pode-se dizer que a fome, o problema antigo mais atual do mundo, é uma das principais. </p>
+          <a href="https://www.cnnbrasil.com.br/viagemegastronomia/viagem/conheca-ongs-que-ajudam-no-combate-a-fome-no-brasil-e-saiba-como-colaborar/" class="botao">LEIA MAIS</a>
+      </div>
+      <div class="card">
+          <img src="/Image/Destaques/img-noticia-3.jpg" alt="Imagem Notícia 3" class="imagem-card">
+          <h3 class="titulo-card">Cinco atitudes e ações da ONU para acabar com a fome.</h3>
+          <p class="descricao-card">Na Semana Mundial da Alimentação, que encerrou esta sexta-feira, as Nações Unidas alertaram que mais de 815 milhões de pessoas não têm o suficiente para comer no mundo. Cerca de 155 milhões de crianças com menos de cinco anos de idade sofrem com subnutrição crônica. Segundo a Organização das Nações Unidas para Agricultura e Alimentação, FAO, uma em cada duas mortes de menores é causada pela fome.</p>
+          <a href="https://news.un.org/pt/story/2018/10/1643882" class="botao">LEIA MAIS</a>
+      </div>
+    </div>
+    </section>
+
+    <div class="junte-se-container">
+      <br>
+      <h2 id="juntese">Seja Voluntário</h2>
+      <form>
+        <div class="form-group">
+          <div class="column">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+          
+            <label for="estado">Estado:</label>
+            <select id="estado" name="estado" required>
+              <option value="AC">AC</option>
+              <option value="AL">AL</option>
+              <option value="AP">AP</option>
+              <option value="AM">AM</option>
+              <option value="BA">BA</option>
+              <option value="CE">CE</option>
+              <option value="DF">DF</option>
+              <option value="ES">ES</option>
+              <option value="GO">GO</option>
+              <option value="MA">MA</option>
+              <option value="MT">MT</option>
+              <option value="MS">MS</option>
+              <option value="MG">MG</option>
+              <option value="PA">PA</option>
+              <option value="PB">PB</option>
+              <option value="PR">PR</option>
+              <option value="PE">PE</option>
+              <option value="PI">PI</option>
+              <option value="RJ">RJ</option>
+              <option value="RN">RN</option>
+              <option value="RS">RS</option>
+              <option value="RO">RO</option>
+              <option value="RR">RR</option>
+              <option value="SC">SC</option>
+              <option value="SP">SP</option>
+              <option value="SE">SE</option>
+              <option value="TO">TO</option>
+            </select>
+            
+            <label for="cidade">Cidade:</label>
+            <input type="text" id="cidade" name="cidade" required>
+          </div>
+          <div class="column">
+            
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" maxlength="11" required>
+            
+            <label id="mensagem" for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" rows="5" cols="10" placeholder="Mensagem" required></textarea>
+          </div>
+        </div>
+        <button type="submit" class="submit-btn">Enviar</button>
+      </form>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="/Image/Logo Rodape.png" alt="Redes de Alimentos Logo" />
+      </div>
+      <nav class="footer-menu">
+        <a href="/home.html">Home</a>
+        <a href="#sobrenos">Sobre nós</a>
+        <a href="#comofunc">Como Funciona</a>
+        <a href="#parcerias">Parcerias</a>
+        <a href="#depoimento">Depoimentos</a>
+        <a href="#dests">Destaques</a>
+        <a href="#juntese">Junte-se a nós</a>
+      </nav>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/rededealimento/" aria-label="Instagram"><img src="/Image/instagram.jpg" alt="Instagram"></a>
+        <a href="#" aria-label="LinkedIn"><img src="/Image/linkedin.jpg" alt="LinkedIn"></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Redes de Alimentos. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

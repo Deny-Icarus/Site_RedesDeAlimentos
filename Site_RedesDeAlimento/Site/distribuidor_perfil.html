@@ -1,0 +1,160 @@
+<!-- Perfil de Distribuidor -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Distribuidor - Redes de Alimentos</title>
+  <link rel="stylesheet" href="/Style/distribuidor.css">
+  <link rel="shortcut icon" href="/Image/Logo (6).png" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+
+  <script defer src="/Java/distribuidor.js"></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="/Image/Logo (13).png" alt="Rede de Alimentos">
+      </div>
+    </nav>
+  </header>
+  <div class="container">
+    <!-- Menu Lateral -->
+    <aside class="sidebar">
+      <div class="profile">
+        <form id="upload-form">
+          <input type="file" id="foto-perfil" accept="image/*" style="display: none;" />
+          <div class="profile-pic" onclick="document.getElementById('foto-perfil').click();"></div>
+        </form>
+        <h2>Distribuidor Teste</h2>
+        <p>Organização Alimentar</p>
+      </div>
+      <nav class="menu">
+        <ul>
+          <li><a href="#perfil" class="menu-link">Perfil</a></li>
+          <li><a href="#doacoes" class="menu-link">Doações Recebidas</a></li>
+          <li><a href="#distribuicao" class="menu-link">Distribuições</a></li>
+          <li><a href="#comentarios" class="menu-link">Comentários</a></li>
+          <li><a href="#sair" class="menu-link">Sair</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Perfil -->
+    <section id="perfil" class="tab-content">
+      <h2>Perfil</h2>
+      <form id="form-editar-perfil">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" value="Distribuidor Teste" required>
+
+        <label for="organizacao">Organização:</label>
+        <input type="text" id="organizacao" name="organizacao" value="Organização Alimentar" required>
+
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" name="telefone" value="(81) 9xxxx-xxxx" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="distribuidor@gmail.com" required>
+
+        <button type="submit">Salvar Alterações</button>
+      </form>
+    </section>
+
+    <!-- Conteúdo Principal -->
+    <main class="content">
+      <section id="perfil" class="tab-content active">
+        <h2>Perfil</h2>
+        <p><strong>Nome:</strong> Distribuidor Teste</p>
+        <p><strong>Organização:</strong> Organização Alimentar</p>
+        <p><strong>Telefone:</strong> (81) 9xxxx-xxxx</p>
+        <p><strong>Email:</strong> distribuidor@gmail.com</p>
+      </section>
+
+      <section id="doacoes" class="tab-content">
+        <h2>Doações Recebidas</h2>
+        <h3>Itens Recebidos</h3>
+        <table id="tabela-doacoes">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Item</th>
+              <th>Validade</th>
+              <th>Quantidade</th>
+              <th>Status</th>
+              <th>Data</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Itens de doação serão listados aqui -->
+          </tbody>
+        </table>
+      </section>
+
+      <section id="distribuicao" class="tab-content">
+        <h2>Distribuições</h2>
+        <form id="form-distribuicao">
+          <label for="item">Item a Distribuir:</label>
+          <input type="text" id="item-distribuicao" required placeholder="Exemplo: Arroz">
+
+          <label for="quantidade">Quantidade:</label>
+          <input type="number" id="quantidade" required>
+
+          <label for="local">Local de Distribuição:</label>
+          <input type="text" id="local" required>
+
+          <button type="submit">Adicionar Distribuição</button>
+        </form>
+
+        <h3>Distribuições Realizadas</h3>
+        <table id="tabela-distribuicao">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Item</th>
+              <th>Quantidade</th>
+              <th>Local</th>
+              <th>Data</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Distribuições realizadas serão listadas aqui -->
+          </tbody>
+        </table>
+      </section>
+
+      <section id="comentarios" class="tab-content">
+        <h2>Comentários</h2>
+        <form id="form-avaliacao">
+          <label for="avaliacao">Avaliação do Distribuidor:</label>
+          <textarea id="avaliacao" placeholder="Escreva uma avaliação sobre o distribuidor" rows="4" required></textarea>
+
+          <label for="classificacao">Classificação:</label>
+          <div id="classificacao" class="stars">
+            <input type="radio" name="classificacao" value="1" id="star1"><label for="star1">&#9733;</label>
+            <input type="radio" name="classificacao" value="2" id="star2"><label for="star2">&#9733;</label>
+            <input type="radio" name="classificacao" value="3" id="star3"><label for="star3">&#9733;</label>
+            <input type="radio" name="classificacao" value="4" id="star4"><label for="star4">&#9733;</label>
+            <input type="radio" name="classificacao" value="5" id="star5"><label for="star5">&#9733;</label>
+          </div>
+
+          <button type="submit">Enviar Avaliação</button>
+        </form>
+
+        <h3>Avaliações Recebidas</h3>
+        <ul id="avaliacoes-list">
+          <!-- Avaliações recebidas serão listadas aqui -->
+        </ul>
+      </section>
+
+      <section id="sair" class="tab-content">
+        <h2>Deseja realmente sair?</h2>
+        <a href="/home.html" class="btn-logout">Sair</a>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
